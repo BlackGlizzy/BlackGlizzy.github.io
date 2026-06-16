@@ -1,0 +1,409 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+body {
+    background-color: #000;
+    color: #00ff41;
+    font-family: 'Special Elite', monospace;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    border-bottom: 1px solid #444;
+}
+
+h1 {
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #00ff41;
+    text-shadow: 0 0 10px #00ff41;
+    display: inline-block;
+    position: relative;
+    animation: neon-glow 2s ease-in-out infinite alternate
+}
+
+@keyframes neon-glow {
+    from {
+        text-shadow: 0 0 5px #00ff41, 0 0 10px #00ff41, 0 0 15px #004d1a;
+    }
+    to {
+        text-shadow: 0 0 15px #00ff41, 0 0 25px #00ff41, 0 0 35px #00ff41;
+        transform: scale(1.02);
+    }
+}
+
+ul {
+    list-style: none;
+    padding-left: 20px;
+}
+
+ul li {
+    margin: 15px 0;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+ul li:hover {
+    transform: translateX(15px);
+    color: #fff;
+    text-shadow: 0 0 8px #00ff41;
+}
+
+ul li::before {
+    content: "⌇ ";
+    color: #00ff41;
+    font-size: 1.2em;
+    margin-right: 10px;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+ul li:hover::before {
+    color: #fff;
+    animation: pulse 1s infinite;
+    transform: scale(1.3);
+}
+
+@keyframes pulse {
+    0% { opacity: 1; transform: scale(1.3); }
+    50% { opacity: 0.3; transform: scale(1.1); }
+    100% { opacity: 1; transform: scale(1.3); }
+}
+
+ul li a {
+    border-bottom: none;
+    transition: all 0.3s ease;
+}
+
+ul li a:hover {
+    background: transparent;
+    text-shadow: 0 0 10px #00ff41;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid #004d1a;
+    background: #050505;
+}
+
+th {
+    border-bottom: 2px solid #00ff41;
+    padding: 15px;
+    text-align: left;
+    background: #0a1a0a;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #002b0f;
+}
+
+tr:hover {
+    background-color: #001a07;
+    color: #fff;
+}
+
+td:last-child {
+    font-size: 1.5em;
+    color: #ff0000; 
+    text-shadow: 0 0 5px #ff0055;
+}
+
+a {
+    color: #00ff41;
+}
+
+footer {
+    text-align: center;
+    width: 100%;
+    padding: 20px 0;
+    font-size: 14px;
+    color: #008f11;
+    border-top: 1px solid #004d1a;
+    margin-top: 40px;
+    flex-shrink: 0;
+}
+/* --- NOVÉ STYLY PRO HORNÍ VYHLEDÁVACÍ LIŠTU --- */
+.top-bar {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 15px 20px;
+    background-color: #000000;
+    border-bottom: 1px solid #008f11;
+}
+
+#hledani, #scrollKnihy, #scrollAutori {
+    background-color: #001100; /* Tmavě zelené pozadí */
+    color: #00ff41; /* Neonový text */
+    border: 1px solid #008f11;
+    padding: 8px 12px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    border-radius: 0; /* Hranatý styl */
+    cursor: pointer;
+}
+
+#hledani::placeholder {
+    color: #008f11;
+}
+
+#hledani {
+    cursor: text;
+    width: 200px;
+}
+
+/* Efekt při najetí nebo kliknutí do vyhledávání/seznamů */
+#hledani:focus, #scrollKnihy:focus, #scrollAutori:focus,
+#hledani:hover, #scrollKnihy:hover, #scrollAutori:hover {
+    border-color: #00ff41;
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.4);
+    background-color: #000000;
+}
+
+/* Vzhled rozbalených položek uvnitř seznamu */
+.top-bar option {
+    background-color: #000000;
+    color: #00ff41;
+    font-family: 'Courier New', Courier, monospace;
+}
+.top-bar {
+    justify-content: space-between; /* Roztáhne vyhledávání doleva a přihlášení doprava */
+}
+
+.search-filters {
+    display: flex;
+    gap: 15px;
+}
+
+/* --- STYLY PRO PŘIHLAŠOVACÍ TLAČÍTKA A TEXT --- */
+#loginBtn, #logoutBtn, #submitLoginBtn {
+    background-color: #001100;
+    color: #00ff41;
+    border: 1px solid #008f11;
+    padding: 8px 12px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+#loginBtn:hover, #logoutBtn:hover, #submitLoginBtn:hover {
+    border-color: #00ff41;
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.6);
+    background-color: #000000;
+}
+
+.user-logged {
+    color: #00ff41;
+    margin-right: 15px;
+    font-size: 14px;
+}
+
+/* --- STYLY PRO VYSKAKOVACÍ OKNO (MODAL) --- */
+.modal {
+    display: none; /* Skryté jako výchozí */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Tmavé průhledné pozadí */
+}
+
+.modal-content {
+    background-color: #000000;
+    margin: 15% auto;
+    padding: 30px;
+    border: 2px solid #00ff41;
+    box-shadow: 0 0 20px #00ff41;
+    width: 300px;
+    position: relative;
+    text-align: center;
+}
+
+.modal-content h2 {
+    color: #00ff41;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-size: 20px;
+    text-shadow: 0 0 5px #00ff41;
+}
+
+.modal-content input {
+    background-color: #001100;
+    color: #00ff41;
+    border: 1px solid #008f11;
+    padding: 10px;
+    margin-bottom: 15px;
+    width: 90%;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.modal-content input:focus {
+    border-color: #00ff41;
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 255, 65, 0.5);
+}
+
+/* Zavírací křížek (X) */
+.close-btn {
+    color: #008f11;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: #00ff41;
+}
+
+/* --- STYLY PRO PROFIL UŽIVATELE PO PŘIHLÁŠENÍ --- */
+.user-profile-box {
+    display: flex;
+    gap: 30px;
+    background-color: #001100;
+    border: 2px solid #00ff41;
+    padding: 25px;
+    margin-top: 20px;
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+    align-items: center;
+    max-width: 600px;
+}
+
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    background-color: #000;
+    border: 2px solid #00ff41 !important; /* Přepíše tvůj globální styl pro obrázky */
+    border-radius: 50%; /* Kulatý avatar */
+    box-shadow: 0 0 15px #00ff41 !important;
+    padding: 5px;
+}
+
+.profile-info {
+    font-family: 'Courier New', Courier, monospace;
+    color: #00ff41;
+}
+
+.profile-info p {
+    margin: 8px 0;
+}
+
+/* Responzivita pro menší obrazovky */
+@media (max-width: 600px) {
+    .user-profile-box {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+/* --- STYLY PRO HORNÍ LIŠTU PO PŘIHLÁŠENÍ (HAD, JMÉNO, ODHLÁŠENÍ) --- */
+.login-container {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Udělá hezké mezery mezi hadem, jménem a tlačítkem */
+}
+
+.notification-wrapper {
+    position: relative;
+}
+
+.bell-btn {
+    background: transparent;
+    border: 1px solid #00ff41;
+    color: #00ff41;
+    font-size: 20px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.bell-btn:hover {
+    background: #002200;
+}
+
+.bell-badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background: #ff0000;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 50%;
+}
+
+.user-logged {
+    color: #00ff41;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+}
+
+#logoutBtn {
+    background: #200000;
+    color: #ff3333;
+    border: 1px solid #ff0000;
+    padding: 6px 15px;
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 3px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+#logoutBtn:hover {
+    background: #4d0000;
+}
+
+/* ROZBALOVACÍ MENU POD HADEM */
+.notifications-dropdown {
+    display: none;
+    position: absolute;
+    top: 45px;
+    right: 0;
+    background-color: #001100;
+    border: 1px solid #00ff41;
+    width: 300px;
+    max-height: 400px;
+    overflow-y: auto;
+    z-index: 1000;
+    padding: 15px;
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
+}
+
+.notifications-dropdown h3 {
+    margin-top: 0;
+    font-size: 16px;
+    border-bottom: 1px solid #00ff41;
+    padding-bottom: 10px;
+    text-align: left;
+}
+
+.notification-item {
+    border-bottom: 1px dashed #004d1a;
+    padding: 10px 0;
+    font-size: 14px;
+    text-align: left;
+    color: #00ff41;
+}
+
+.notification-item:last-child {
+    border-bottom: none;
+}
+
+.notification-item .time {
+    display: block;
+    font-size: 12px;
+    color: #008f11;
+    margin-top: 5px;
+}

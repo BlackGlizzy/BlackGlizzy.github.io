@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autoři</title>
+    <link rel="stylesheet" href="ObecnýStyl.css">
+</head>
+<body>
+    <div class="top-bar">
+        <div class="search-filters">
+            <input type="text" id="hledani" placeholder="Vyhledat..." onkeyup="vyhledejVSeznamech()">
+            
+            <select id="scrollKnihy" onchange="if(this.value) window.open(this.value, '_blank')">
+                <option value="" disabled selected>Knihy (vyberte)</option>
+                <option value="Havran2.html">Havran</option>
+                <option value="smallprinc2.html">Malý princ</option>
+                <option value="mechanickýpomeranc2.html">Mechanický pomeranč</option>
+            </select>
+            
+            <select id="scrollAutori" onchange="if(this.value) window.open(this.value, '_blank')">
+                <option value="" disabled selected>Autoři (vyberte)</option>
+                <option value="edgar2.html">Edgar Allan Poe</option>
+                <option value="anthony2.html">Anthony Burgess</option>
+                <option value="exupery2.html">Antoine de Saint-Exupéry</option>
+            </select>
+        </div>
+
+        <div class="login-container" id="loginContainer">
+            <button id="loginBtn" onclick="otevriModal()">Přihlásit se</button>
+        </div>
+    </div>    
+    <header>
+        <h1>Autoři</h1>
+        <hr>
+    </header>
+
+    <main>
+        <div class="section">
+            <h2>Autoři knih</h2>
+            <ul>
+                <li><a href="edgar2.html" target="_blank">Edgar Allan Poe</a></li>
+                <li><a href="anthony2.html" target="_blank">Anthony Burgess</a></li>
+                <li><a href="exupery2.html" target="_blank">Antoine de Saint-Exupéry</a></li>
+            </ul>
+        </div>
+    </main>
+<footer>
+        <p>&copy; 2025 všechna práva vyhrazena korporaci Handle S.R.O.</p>
+        <h3>Odkazy</h3>
+            <ul>
+                <li><a href="Index.html">Domů</a></li>
+            </ul>
+    </footer>
+
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="zavriModal()">&times;</span>
+        <h2>Přihlášení</h2>
+        <form id="loginForm" onsubmit="provedPrihlaseni(event)">
+            <input type="text" id="username" placeholder="Uživatelské jméno" required><br>
+            <input type="password" id="password" placeholder="Heslo" required><br>
+            <button type="submit" id="submitLoginBtn">Vstoupit</button>
+        </form>
+    </div>
+</div>
+
+<script src="java.js"></script>    
+</body>
+</html>

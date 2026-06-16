@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistika</title>
+    <link rel="stylesheet" href="StatistikaStyl.css">
+</head>
+<body>
+<div class="top-bar">
+        <div class="search-filters">
+            <input type="text" id="hledani" placeholder="Vyhledat..." onkeyup="vyhledejVSeznamech()">
+            
+            <select id="scrollKnihy" onchange="if(this.value) window.open(this.value, '_blank')">
+                <option value="" disabled selected>Knihy (vyberte)</option>
+                <option value="Havran2.html">Havran</option>
+                <option value="smallprinc2.html">Malý princ</option>
+                <option value="mechanickýpomeranc2.html">Mechanický pomeranč</option>
+            </select>
+            
+            <select id="scrollAutori" onchange="if(this.value) window.open(this.value, '_blank')">
+                <option value="" disabled selected>Autoři (vyberte)</option>
+                <option value="edgar2.html">Edgar Allan Poe</option>
+                <option value="anthony2.html">Anthony Burgess</option>
+                <option value="exupery2.html">Antoine de Saint-Exupéry</option>
+            </select>
+        </div>
+
+        <div class="login-container" id="loginContainer">
+            <button id="loginBtn" onclick="otevriModal()">Přihlásit se</button>
+        </div>
+    </div>
+    <header>
+        <h1>Statistika - přečtené knihy</h1>
+        <hr>
+    </header>
+
+    <main>
+        <div class="content">
+            <h2>Přehled přečtených knih</h2>
+            <table cellpadding="5" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Název knihy</th>
+                        <th>Autor</th>
+                        <th>Rok přečtení</th>
+                        <th>Hodnocení</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Malý princ</td>
+                        <td>Antoine de Saint-Exupéry</td>
+                        <td>2024</td>
+                        <td>3</td>
+
+                    </tr>
+                    <tr>
+                        <td>Havran</td>
+                        <td>Edgar Allan Poe</td>
+                        <td>2024</td>
+                        <td>5</td>
+
+                    </tr>
+                    <tr>
+                        <td>Mechanický pomeranč</td>
+                        <td>Anthony Burgess</td>
+                        <td>2024</td>
+                        <td>∞</td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 všechna práva vyhrazena korporaci Handle S.R.O.</p>
+        <h3>Odkazy</h3>
+            <ul>
+                <li><a href="Index.html">Domů</a></li>
+            </ul>
+    </footer>
+
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="zavriModal()">&times;</span>
+        <h2>Přihlášení</h2>
+        <form id="loginForm" onsubmit="provedPrihlaseni(event)">
+            <input type="text" id="username" placeholder="Uživatelské jméno" required><br>
+            <input type="password" id="password" placeholder="Heslo" required><br>
+            <button type="submit" id="submitLoginBtn">Vstoupit</button>
+        </form>
+    </div>
+</div>
+
+<script src="java.js"></script>    
+</body>
+</html>

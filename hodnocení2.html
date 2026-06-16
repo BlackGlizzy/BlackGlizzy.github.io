@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hodnocení knih</title>
+    <link rel="stylesheet" href="HodnoceniStyl.css">
+</head>
+<body>
+<div class="top-bar">
+        <div class="search-filters">
+            <input type="text" id="hledani" placeholder="Vyhledat..." onkeyup="vyhledejVSeznamech()">
+            
+            <select id="scrollKnihy" onchange="if(this.value) window.open(this.value, '_blank')">
+                <option value="" disabled selected>Knihy (vyberte)</option>
+                <option value="Havran2.html">Havran</option>
+                <option value="smallprinc2.html">Malý princ</option>
+                <option value="mechanickýpomeranc2.html">Mechanický pomeranč</option>
+            </select>
+            
+            <select id="scrollAutori" onchange="if(this.value) window.open(this.value, '_blank')">
+                <option value="" disabled selected>Autoři (vyberte)</option>
+                <option value="edgar2.html">Edgar Allan Poe</option>
+                <option value="anthony2.html">Anthony Burgess</option>
+                <option value="exupery2.html">Antoine de Saint-Exupéry</option>
+            </select>
+        </div>
+
+        <div class="login-container" id="loginContainer">
+            <button id="loginBtn" onclick="otevriModal()">Přihlásit se</button>
+        </div>
+    </div>
+    <header>
+        <h1>Hodnocení knih</h1>
+        <hr>
+    </header>
+
+    <main>
+
+        <div class="content">
+            
+            <p>Zde můžete ohodnotit knihy</p>
+
+            <form id="ratingForm" onsubmit="ulozHodnoceniDoMatrixu(event)"> 
+                
+                <div>
+                    <label for="vyber_knihy">Vyberte knihu :</label><br>
+                    <select id="vyber_knihy" name="vybrana_kniha" required>
+                        <option value="" disabled selected>--- Vyberte knihu ---</option>
+                        <option value="maly_princ">Malý princ</option>
+                        <option value="havran">Havran</option>
+                        <option value="mechanicky_pomeranc">Mechanický pomeranč</option>
+                    </select>
+                </div>
+
+                <br>
+
+                <div>
+                    <label for="jmeno">Váš Nickname:</label><br>
+                    <input 
+                        type="text" 
+                        id="jmeno" 
+                        name="jmeno_uzivatele" 
+                        placeholder="př. Alien67"
+                        required
+                        style="background: #000; color: #00ff41; border: 1px solid #008f11; padding: 5px; font-family: monospace;"
+                    >
+                </div>
+
+                <br>
+
+                <div>
+                    <label for="ciselne_hodnoceni">Číselné hodnocení 1-5:</label><br>
+                    <input 
+                        type="number" 
+                        id="ciselne_hodnoceni" 
+                        name="rating" 
+                        min="1" 
+                        max="5" 
+                        placeholder="př.4"
+                        required
+                    >
+                </div>
+                
+                <br>
+                
+                <div>
+                    <label for="slovni_hodnoceni">Slovní hodnocení :</label><br>
+                    <textarea 
+                        id="slovni_hodnoceni" 
+                        name="komentar" 
+                        rows="5" 
+                        cols="50"
+                        placeholder="Žádné sprostá slova pls knihy mám rád"
+                    ></textarea>
+                </div>
+
+                <br>
+                
+                <div>
+                    <input type="submit" value="Odeslat hodnocení">
+                </div>
+
+            </form>
+
+            <hr>
+
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2026 všechna práva vyhrazena korporaci Handle S.R.O.</p>
+        <h3>Odkazy</h3>
+            <ul>
+                <li><a href="Index.html">Domů</a></li>
+            </ul>
+    </footer>
+
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="zavriModal()">&times;</span>
+        <h2>Přihlášení</h2>
+        <form id="loginForm" onsubmit="provedPrihlaseni(event)">
+            <input type="text" id="username" placeholder="Uživatelské jméno" required><br>
+            <input type="password" id="password" placeholder="Heslo" required><br>
+            <button type="submit" id="submitLoginBtn">Vstoupit</button>
+        </form>
+    </div>
+</div>
+
+<script src="java.js"></script>    
+</body>
+</html>

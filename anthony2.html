@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anthony Burgess</title>
+    <link rel="stylesheet" href="ObecnýStyl.css">
+</head>
+<body>
+    <div class="top-bar">
+        <div class="search-filters">
+            <input type="text" id="hledani" placeholder="Vyhledat..." onkeyup="vyhledejVSeznamech()">
+            
+            <select id="scrollKnihy" onchange="if(this.value) window.open(this.value, '_blank')">
+                <option value="" disabled selected>Knihy (vyberte)</option>
+                <option value="Havran2.html">Havran</option>
+                <option value="smallprinc2.html">Malý princ</option>
+                <option value="mechanickýpomeranc2.html">Mechanický pomeranč</option>
+            </select>
+            
+            <select id="scrollAutori" onchange="if(this.value) window.open(this.value, '_blank')">
+                <option value="" disabled selected>Autoři (vyberte)</option>
+                <option value="edgar2.html">Edgar Allan Poe</option>
+                <option value="anthony2.html">Anthony Burgess</option>
+                <option value="exupery2.html">Antoine de Saint-Exupéry</option>
+            </select>
+        </div>
+
+        <div class="login-container" id="loginContainer">
+            <button id="loginBtn" onclick="otevriModal()">Přihlásit se</button>
+        </div>
+    </div>    
+    <header>
+        <h1>Anthony Burgess</h1>
+        <hr>
+    </header>
+
+    <main>
+        <div class="section">
+            <span class="label">Kdo to je : </span>
+            <span class="content">britský spisovatel, básník a filmový scénarista.</span>
+        </div>
+
+        <div class="section">
+            <span class="label">Krátké info o autorovi : </span>
+            <span class="content">Proslavil se zejména románem Mechanický pomeranč (A Clockwork Orange), který se stal kultovním dílem moderní literatury i filmu.<br>
+                Burgess napsal desítky knih, esejí a studií, zabýval se jazykem, filozofií a společenskými tématy.<br>
+                Byl známý svou jazykovou kreativitou, širokým vzděláním a schopností psát napříč mnoha žánry – od dystopií přes historické romány až po hudební teorie.</span>
+        </div>
+        <table cellpadding="6" cellspacing="0">
+    <tr>
+        <th>Díla</th>
+        <th>Rok vydání</th>
+    </tr>
+    <tr>
+        <td>
+            <a href="https://en.wikipedia.org/wiki/1985_(Burgess_novel)" target="_blank">
+                1985
+            </a>
+        </td>
+        <td>1978</td>
+    </tr>
+    <tr>
+        <td>
+            <a href="https://en.wikipedia.org/wiki/A_Clockwork_Orange_(film)" target="_blank">
+                Mechanický pomeranč
+            </a>
+        </td>
+        <td>1962</td>
+    </tr>
+    <tr>
+        <td>
+            <a href="https://en.wikipedia.org/wiki/Nothing_Like_the_Sun:_A_Story_of_Shakespeare%27s_Love_Life" target="_blank">
+                Všechno, jen ne slunce
+            </a>
+        </td>
+        <td>1964</td>
+    </tr>
+</table>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 všechna práva vyhrazena korporaci Handle S.R.O.</p>
+        <h3>Odkazy</h3>
+            <ul>
+                <li><a href="Index.html">Domů</a></li>
+            </ul>
+    </footer>
+
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="zavriModal()">&times;</span>
+        <h2>Přihlášení</h2>
+        <form id="loginForm" onsubmit="provedPrihlaseni(event)">
+            <input type="text" id="username" placeholder="Uživatelské jméno" required><br>
+            <input type="password" id="password" placeholder="Heslo" required><br>
+            <button type="submit" id="submitLoginBtn">Vstoupit</button>
+        </form>
+    </div>
+</div>
+
+<script src="java.js"></script>    
+</body>
+</html>

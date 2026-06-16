@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mechanický Pomeranč</title>
+    <link rel="stylesheet" href="ObecnýStyl.css">
+</head>
+<body>
+    <div class="top-bar">
+        <div class="search-filters">
+            <input type="text" id="hledani" placeholder="Vyhledat..." onkeyup="vyhledejVSeznamech()">
+            
+            <select id="scrollKnihy" onchange="if(this.value) window.open(this.value, '_blank')">
+                <option value="" disabled selected>Knihy (vyberte)</option>
+                <option value="Havran2.html">Havran</option>
+                <option value="smallprinc2.html">Malý princ</option>
+                <option value="mechanickýpomeranc2.html">Mechanický pomeranč</option>
+            </select>
+            
+            <select id="scrollAutori" onchange="if(this.value) window.open(this.value, '_blank')">
+                <option value="" disabled selected>Autoři (vyberte)</option>
+                <option value="edgar2.html">Edgar Allan Poe</option>
+                <option value="anthony2.html">Anthony Burgess</option>
+                <option value="exupery2.html">Antoine de Saint-Exupéry</option>
+            </select>
+        </div>
+
+        <div class="login-container" id="loginContainer">
+            <button id="loginBtn" onclick="otevriModal()">Přihlásit se</button>
+        </div>
+    </div>
+
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="zavriModal()">&times;</span>
+        <h2>Přihlášení</h2>
+        <form id="loginForm" onsubmit="provedPrihlaseni(event)">
+            <input type="text" id="username" placeholder="Uživatelské jméno" required><br>
+            <input type="password" id="password" placeholder="Heslo" required><br>
+            <button type="submit" id="submitLoginBtn">Vstoupit</button>
+        </form>
+    </div>
+</div>
+    <header>
+        <h1>Mechanický pomeranč</h1>
+        <hr>
+    </header>
+
+    <main>
+        <div class="section">
+            <span class="label">Literární druh a žánr:</span>
+            <span class="content">Epika, román</span>
+        </div>
+
+        <div class="section">
+            <span class="label">Autor:</span>
+            <span class="content">Anthony Burgess = britský spisovatel, básník a filmový scénarista.</span>
+        </div>
+
+        <div class="section">
+            <span class="label">Děj:</span>
+            <span class="content">
+                Kniha je o mladíkovi Alexovi, který tráví své mládí v mléčném baru Korova nebo se svou partou páchá v ulicích násilné činy.<br>
+                Jedné noci se pomocí fíglu vloupu do domu spisovatele F. Alexandra a i s jeho manželkou je zmlátí.<br>
+                Další den udělají něco podobného, ale tentokrát parta zradí Alexandra.
+            </span>
+        </div>
+
+        <div class="section">
+
+            <br>
+            <img src="https://d2emjept89nv7b.cloudfront.net/covers/106/10652/2/1000/Audiokniha-Mechanicky-pomeranc-Anthony-Burgess.jpg" 
+                 alt="Mechanický pomeranč" width="250" height="250">
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 všechna práva vyhrazena korporaci Handle S.R.O.</p>
+        <h3>Odkazy</h3>
+            <ul>
+                <li><a href="Index.html">Domů</a></li>
+            </ul>
+    </footer>
+
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="zavriModal()">&times;</span>
+        <h2>Přihlášení</h2>
+        <form id="loginForm" onsubmit="provedPrihlaseni(event)">
+            <input type="text" id="username" placeholder="Uživatelské jméno" required><br>
+            <input type="password" id="password" placeholder="Heslo" required><br>
+            <button type="submit" id="submitLoginBtn">Vstoupit</button>
+        </form>
+    </div>
+</div>
+
+<script src="java.js"></script>    
+</body>
+</html>

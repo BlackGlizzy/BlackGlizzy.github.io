@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil autora</title>
+    <link rel="stylesheet" href="ObecnýStyl.css">
+</head>
+<body>
+<div class="top-bar">
+        <div class="search-filters">
+            <input type="text" id="hledani" placeholder="Vyhledat..." onkeyup="vyhledejVSeznamech()">
+            
+            <select id="scrollKnihy" onchange="if(this.value) window.open(this.value, '_blank')">
+                <option value="" disabled selected>Knihy (vyberte)</option>
+                <option value="Havran2.html">Havran</option>
+                <option value="smallprinc2.html">Malý princ</option>
+                <option value="mechanickýpomeranc2.html">Mechanický pomeranč</option>
+            </select>
+            
+            <select id="scrollAutori" onchange="if(this.value) window.open(this.value, '_blank')">
+                <option value="" disabled selected>Autoři (vyberte)</option>
+                <option value="edgar2.html">Edgar Allan Poe</option>
+                <option value="anthony2.html">Anthony Burgess</option>
+                <option value="exupery2.html">Antoine de Saint-Exupéry</option>
+            </select>
+        </div>
+
+        <div class="login-container" id="loginContainer">
+            <button id="loginBtn" onclick="otevriModal()">Přihlásit se</button>
+        </div>
+    </div>
+    <header>
+        <h1>Profil autora</h1>
+        <hr>
+    </header>
+
+    <main>
+      
+        <div class="content">
+            <h2>Dominik Klika</h2>
+
+            <h3>Něco málo o něm:</h3>
+            <ul>
+                <li><strong>Co rád dělá:</strong> Rád hraje na kytaru, poslouchá hudbu a také rád hraje videohry.<br>
+                    Ve volném čase si povídá s kamarády nebo se snaží dělat hudbu.<br>
+                    Jeho velkým snem je být v kapele. Což se mu pomalu naplňuje.<br></li>
+                <li><strong>Co studuje:</strong> Studuju druhým rokem informační technologie na SPŠE ŽATEC.</a></li>
+            </ul>
+            <img src="Snímek obrazovky 2025-06-12 230913.png" alt="GG">
+            <video width="335" controls>
+            <source src="token.mp4" type="video/mp4">
+          </video>
+
+            <hr>
+    </main>
+
+    
+    <footer>
+        <p>&copy; 2025 všechna práva vyhrazena korporaci Handle S.R.O.</p>
+        <h3>Odkazy</h3>
+            <ul>
+                <li><a href="Index.html">Domů</a></li>
+            </ul>
+    </footer>
+    
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="zavriModal()">&times;</span>
+        <h2>Přihlášení</h2>
+        <form id="loginForm" onsubmit="provedPrihlaseni(event)">
+            <input type="text" id="username" placeholder="Uživatelské jméno" required><br>
+            <input type="password" id="password" placeholder="Heslo" required><br>
+            <button type="submit" id="submitLoginBtn">Vstoupit</button>
+        </form>
+    </div>
+</div>
+
+<script src="java.js"></script>
+    
+</body>
+</html>
+
